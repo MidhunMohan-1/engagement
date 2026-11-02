@@ -573,10 +573,11 @@ body {
 
 .countdown-done-text {
   font-family: var(--font-display);
-  font-size: 1.45rem;
+  font-size: clamp(1.25rem, 3.6vw, 1.5rem);
   font-style: italic;
   font-weight: 500;
-  color: var(--terracotta-deep);
+  letter-spacing: 0.02em;
+  color: var(--ink);
 }
 
 .countdown-done-gem {
@@ -593,14 +594,45 @@ body {
 }
 
 .section-title {
-  margin: 0 0 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.15rem;
   font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-size: clamp(1.25rem, 3.6vw, 1.5rem);
+  font-weight: 500;
   font-style: italic;
+  line-height: 1.2;
   text-align: center;
   color: var(--ink);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
+}
+
+.section-title::before {
+  content: "✦";
+  font-family: var(--font-body);
+  font-size: 0.5rem;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.section-title::after {
+  content: "";
+  width: min(4.5rem, 28vw);
+  height: 1px;
+  margin-top: 0.1rem;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(196, 165, 116, 0.35),
+    var(--gold),
+    rgba(196, 165, 116, 0.35),
+    transparent
+  );
 }
 
 .body-text {
@@ -741,8 +773,13 @@ body {
 }
 
 .venue strong {
+  display: block;
+  margin-bottom: 0.25rem;
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.02em;
   color: var(--ink);
 }
 

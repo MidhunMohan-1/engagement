@@ -5,6 +5,8 @@ window.INVITATION_CONFIG = {
   eventType: "Engagement",
   /** Display date (hero) */
   dateDisplay: "Thursday, 26 November 2026",
+  countdownTarget: "2026-11-26T11:48:00+05:30",
+  countdownLabel: "Until our muhurtham",
   venueName: "Travellers Cavern Resort",
   venueArea: "Ambalavayal, Wayanad, Kerala",
   mapsUrl:

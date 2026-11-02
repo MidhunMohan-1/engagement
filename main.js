@@ -26,6 +26,77 @@
     if (mapsLink) mapsLink.href = cfg.mapsUrl;
   }
 
+  function initCountdown() {
+    const wrap = $("countdown");
+    const targetMs = Date.parse(cfg.countdownTarget);
+    if (!wrap || Number.isNaN(targetMs)) return;
+
+    const heading = $("countdown-heading");
+    if (heading && cfg.countdownLabel) heading.textContent = cfg.countdownLabel;
+
+    const cells = {
+      days: $("cd-days"),
+      hours: $("cd-hours"),
+      mins: $("cd-mins"),
+      secs: $("cd-secs"),
+    };
+    const grid = wrap.querySelector(".countdown-grid");
+    const doneEl = $("countdown-done");
+    if (!cells.days || !cells.hours || !cells.mins || !cells.secs) return;
+
+    wrap.hidden = false;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    function pad(n) {
+      return String(n).padStart(2, "0");
+    }
+
+    function setValue(el, next) {
+      if (!el || el.textContent === next) return;
+      el.textContent = next;
+      if (!reducedMotion) {
+        el.classList.remove("is-ticking");
+        void el.offsetWidth;
+        el.classList.add("is-ticking");
+      }
+    }
+
+    function tick() {
+      const diff = targetMs - Date.now();
+      if (diff <= 0) {
+        if (grid) grid.hidden = true;
+        if (heading) heading.hidden = true;
+        if (doneEl) {
+          doneEl.hidden = false;
+          if (!reducedMotion) doneEl.classList.add("is-live");
+        }
+        wrap.setAttribute("aria-label", "The celebration day has arrived");
+        return;
+      }
+
+      const totalSec = Math.floor(diff / 1000);
+      const days = Math.floor(totalSec / 86400);
+      const hours = Math.floor((totalSec % 86400) / 3600);
+      const mins = Math.floor((totalSec % 3600) / 60);
+      const secs = totalSec % 60;
+
+      setValue(cells.days, String(days));
+      setValue(cells.hours, pad(hours));
+      setValue(cells.mins, pad(mins));
+      setValue(cells.secs, pad(secs));
+
+      wrap.setAttribute(
+        "aria-label",
+        `${days} days, ${hours} hours, ${mins} minutes, ${secs} seconds remaining`
+      );
+    }
+
+    tick();
+    window.setInterval(tick, 1000);
+  }
+
   function initScrollReveal() {
     const scrollRoot = document.querySelector(".page-scroll");
     const targets = document.querySelectorAll(".reveal-on-scroll");
@@ -133,19 +204,13 @@
     }
     const apiMessage = typeof data?.message === "string" ? data.message : "";
     if (/activation/i.test(apiMessage)) {
-      return (
-        `Check ${cfg.rsvpEmail} for FormSubmit’s “Activate Form” email, click the link once, then submit again.`
-      );
+      return `Check ${cfg.rsvpEmail} for FormSubmit’s “Activate Form” email, click the link once, then submit again.`;
     }
     if (/web server|html files/i.test(apiMessage)) {
-      return (
-        "Open this invitation from your hosted link or via a local server (npx serve .), not as a saved HTML file."
-      );
+      return "Open this invitation from your hosted link or via a local server (npx serve .), not as a saved HTML file.";
     }
     if (apiMessage) return apiMessage;
-    return (
-      `Could not send right now. Please try again or email us at ${cfg.rsvpEmail}.`
-    );
+    return `Could not send right now. Please try again or email us at ${cfg.rsvpEmail}.`;
   }
 
   function initRsvpForm() {
@@ -156,7 +221,9 @@
     const dialog = $("rsvp-dialog");
     const status = $("rsvp-status");
     const submitBtn = $("rsvp-submit");
-    const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(formSubmitKey)}`;
+    const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(
+      formSubmitKey
+    )}`;
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -272,6 +339,7 @@
 
   initCopy();
   renderProgram();
+  initCountdown();
   initScrollReveal();
   initRsvpDialog();
   initRsvpForm();

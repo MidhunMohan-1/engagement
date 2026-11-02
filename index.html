@@ -52,65 +52,111 @@
     <audio id="bg-music" loop preload="none"></audio>
 
     <div class="page-scroll">
-    <main class="card" id="invitation">
-      <header class="hero section">
-        <p class="eyebrow" id="event-type">Engagement</p>
-        <h1 class="names">
-          <span id="name-1">Midhun</span>
-          <span class="ampersand">&</span>
-          <span id="name-2">Rithunanda</span>
-        </h1>
-        <div class="divider" aria-hidden="true">
-          <span class="divider-line"></span>
-          <span class="divider-gem">✿</span>
-          <span class="divider-line"></span>
-        </div>
-        <p class="hero-date" id="date-display">Thursday, 26 November 2026</p>
-      </header>
+      <main class="card" id="invitation">
+        <header class="hero section">
+          <p class="eyebrow" id="event-type">Engagement</p>
+          <h1 class="names">
+            <span id="name-1">Midhun</span>
+            <span class="ampersand">&</span>
+            <span id="name-2">Rithunanda</span>
+          </h1>
+          <div class="divider" aria-hidden="true">
+            <span class="divider-line"></span>
+            <span class="divider-gem">✿</span>
+            <span class="divider-line"></span>
+          </div>
+          <p class="hero-date" id="date-display">Thursday, 26 November 2026</p>
+        </header>
 
-      <section class="section reveal-on-scroll" aria-labelledby="program-heading">
-        <h2 id="program-heading" class="section-title">Program</h2>
-        <ol class="timeline" id="program-list"></ol>
-      </section>
-
-      <section class="section reveal-on-scroll" aria-labelledby="venue-heading">
-        <h2 id="venue-heading" class="section-title">Venue</h2>
-        <address class="venue">
-          <strong id="venue-name">Travellers Cavern Resort</strong><br />
-          <span id="venue-area">Ambalavayal, Wayanad, Kerala</span>
-        </address>
-        <a
-          id="maps-link"
-          class="btn btn-primary"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
+        <section
+          class="section reveal-on-scroll"
+          aria-labelledby="venue-heading"
         >
-          Open in Google Maps
-        </a>
-      </section>
+          <h2 id="venue-heading" class="section-title">Venue</h2>
+          <address class="venue">
+            <strong id="venue-name">Travellers Cavern Resort</strong><br />
+            <span id="venue-area">Ambalavayal, Wayanad, Kerala</span>
+          </address>
+          <a
+            id="maps-link"
+            class="btn btn-primary"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open in Google Maps
+          </a>
+        </section>
 
-      <section class="section rsvp-section reveal-on-scroll" aria-labelledby="rsvp-heading">
-        <h2 id="rsvp-heading" class="section-title">RSVP</h2>
-        <p class="body-text">
-          We would be honoured by your presence. Please let us know if you can
-          join us.
-        </p>
-        <button type="button" class="btn btn-gold" id="rsvp-open">
-          RSVP
-        </button>
-      </section>
+        <section
+          class="section reveal-on-scroll"
+          aria-labelledby="program-heading"
+        >
+          <h2 id="program-heading" class="section-title">Program</h2>
+          <ol class="timeline" id="program-list"></ol>
+        </section>
 
-      <footer class="footer section reveal-on-scroll">
-        <p class="footer-blessing">With love and gratitude,</p>
-        <p class="footer-names">
-          <span id="footer-names">Midhun & Rithunanda</span>
-        </p>
-      </footer>
-    </main>
+        <section
+          class="section countdown-section reveal-on-scroll"
+          aria-labelledby="countdown-heading"
+        >
+          <h2 id="countdown-heading" class="section-title">
+            Until our muhurtham
+          </h2>
+          <div class="countdown" id="countdown" hidden>
+            <div class="countdown-grid" role="timer" aria-live="polite">
+              <div class="countdown-cell" style="--cell-i: 0">
+                <span class="countdown-value" id="cd-days">0</span>
+                <span class="countdown-unit">Days</span>
+              </div>
+              <div class="countdown-cell" style="--cell-i: 1">
+                <span class="countdown-value" id="cd-hours">00</span>
+                <span class="countdown-unit">Hours</span>
+              </div>
+              <div class="countdown-cell" style="--cell-i: 2">
+                <span class="countdown-value" id="cd-mins">00</span>
+                <span class="countdown-unit">Mins</span>
+              </div>
+              <div class="countdown-cell countdown-cell--secs" style="--cell-i: 3">
+                <span class="countdown-value" id="cd-secs">00</span>
+                <span class="countdown-unit">Secs</span>
+              </div>
+            </div>
+            <p class="countdown-done" id="countdown-done" hidden>
+              <span class="countdown-done-text">Today we celebrate</span>
+              <span class="countdown-done-gem" aria-hidden="true">✿</span>
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="section rsvp-section reveal-on-scroll"
+          aria-labelledby="rsvp-heading"
+        >
+          <h2 id="rsvp-heading" class="section-title">RSVP</h2>
+          <p class="body-text">
+            We would be honoured by your presence. Please let us know if you can
+            join us.
+          </p>
+          <button type="button" class="btn btn-gold" id="rsvp-open">
+            RSVP
+          </button>
+        </section>
+
+        <footer class="footer section reveal-on-scroll">
+          <p class="footer-blessing">With love and gratitude,</p>
+          <p class="footer-names">
+            <span id="footer-names">Midhun & Rithunanda</span>
+          </p>
+        </footer>
+      </main>
     </div>
 
-    <dialog id="rsvp-dialog" class="rsvp-dialog" aria-labelledby="rsvp-dialog-title">
+    <dialog
+      id="rsvp-dialog"
+      class="rsvp-dialog"
+      aria-labelledby="rsvp-dialog-title"
+    >
       <button
         type="button"
         class="rsvp-dialog-close"
@@ -160,7 +206,12 @@
         <button type="submit" class="btn btn-gold" id="rsvp-submit">
           Send RSVP
         </button>
-        <p id="rsvp-status" class="rsvp-status" role="status" aria-live="polite"></p>
+        <p
+          id="rsvp-status"
+          class="rsvp-status"
+          role="status"
+          aria-live="polite"
+        ></p>
       </form>
     </dialog>
 

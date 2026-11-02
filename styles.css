@@ -145,6 +145,31 @@ body {
   overflow-y: auto;
   overscroll-behavior: none;
   animation: card-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(247, 243, 235, 0.35) transparent;
+}
+
+.card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.card::-webkit-scrollbar-thumb {
+  background: rgba(247, 243, 235, 0.22);
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.card::-webkit-scrollbar-thumb:hover {
+  background: rgba(247, 243, 235, 0.4);
+}
+
+.card::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 @keyframes card-in {
@@ -569,6 +594,21 @@ body {
   overflow-y: auto;
   opacity: 0;
   transform: translateY(16px) scale(0.96);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(45, 74, 62, 0.35) transparent;
+}
+
+.rsvp-dialog::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rsvp-dialog::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.rsvp-dialog::-webkit-scrollbar-thumb {
+  background: rgba(45, 74, 62, 0.25);
+  border-radius: 999px;
 }
 
 .rsvp-dialog[open] {

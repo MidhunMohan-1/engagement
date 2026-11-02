@@ -27,7 +27,7 @@
   }
 
   function initScrollReveal() {
-    const scrollRoot = document.querySelector(".card");
+    const scrollRoot = document.querySelector(".page-scroll");
     const targets = document.querySelectorAll(".reveal-on-scroll");
     if (!targets.length) return;
 

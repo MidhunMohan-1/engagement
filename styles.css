@@ -135,41 +135,47 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-.card {
-  max-width: 720px;
-  height: 100%;
-  max-height: 100dvh;
-  margin: 0 auto;
-  padding: 1rem 1rem 1.25rem;
+.page-scroll {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100dvh;
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: none;
-  animation: card-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
   scrollbar-width: thin;
   scrollbar-color: rgba(247, 243, 235, 0.35) transparent;
 }
 
-.card::-webkit-scrollbar {
+.page-scroll::-webkit-scrollbar {
   width: 6px;
 }
 
-.card::-webkit-scrollbar-track {
+.page-scroll::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.card::-webkit-scrollbar-thumb {
+.page-scroll::-webkit-scrollbar-thumb {
   background: rgba(247, 243, 235, 0.22);
   border-radius: 999px;
   border: 1px solid transparent;
   background-clip: padding-box;
 }
 
-.card::-webkit-scrollbar-thumb:hover {
+.page-scroll::-webkit-scrollbar-thumb:hover {
   background: rgba(247, 243, 235, 0.4);
 }
 
-.card::-webkit-scrollbar-corner {
+.page-scroll::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+.card {
+  max-width: 720px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 1rem 1rem 1.25rem;
+  animation: card-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes card-in {

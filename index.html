@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Midhun & Rithunanda - Engagement</title>
+    <meta
+      name="description"
+      content="Join Midhun & Rithunanda for their engagement on 26 November 2026 at Travellers Cavern Resort, Wayanad."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Midhun & Rithunanda - Engagement" />
+    <meta
+      property="og:description"
+      content="26 November 2026 · Travellers Cavern Resort, Ambalavayal, Wayanad"
+    />
+    <meta property="og:image" content="assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Midhun & Rithunanda - Engagement" />
+    <meta
+      name="twitter:description"
+      content="26 November 2026 · Travellers Cavern Resort, Wayanad"
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-bg" aria-hidden="true">
+      <div class="page-orbs">
+        <span class="page-orb page-orb--1"></span>
+        <span class="page-orb page-orb--2"></span>
+        <span class="page-orb page-orb--3"></span>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      id="music-toggle"
+      class="music-toggle hidden"
+      aria-label="Play background music"
+      aria-pressed="false"
+    >
+      <span class="music-icon music-icon--off" aria-hidden="true">♪</span>
+      <span class="music-icon music-icon--on" aria-hidden="true">♫</span>
+    </button>
+    <audio id="bg-music" loop preload="none"></audio>
+
+    <main class="card" id="invitation">
+      <header class="hero section">
+        <p class="eyebrow" id="event-type">Engagement</p>
+        <h1 class="names">
+          <span id="name-1">Midhun</span>
+          <span class="ampersand">&</span>
+          <span id="name-2">Rithunanda</span>
+        </h1>
+        <div class="divider" aria-hidden="true">
+          <span class="divider-line"></span>
+          <span class="divider-gem">✦</span>
+          <span class="divider-line"></span>
+        </div>
+        <p class="hero-date" id="date-display">Thursday, 26 November 2026</p>
+      </header>
+
+      <section class="section reveal-on-scroll" aria-labelledby="program-heading">
+        <h2 id="program-heading" class="section-title">Program</h2>
+        <ol class="timeline" id="program-list"></ol>
+      </section>
+
+      <section class="section reveal-on-scroll" aria-labelledby="venue-heading">
+        <h2 id="venue-heading" class="section-title">Venue</h2>
+        <address class="venue">
+          <strong id="venue-name">Travellers Cavern Resort</strong><br />
+          <span id="venue-area">Ambalavayal, Wayanad, Kerala</span>
+        </address>
+        <a
+          id="maps-link"
+          class="btn btn-primary"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open in Google Maps
+        </a>
+      </section>
+
+      <section class="section rsvp-section reveal-on-scroll" aria-labelledby="rsvp-heading">
+        <h2 id="rsvp-heading" class="section-title">RSVP</h2>
+        <p class="body-text">
+          We would be honoured by your presence. Please let us know if you can
+          join us.
+        </p>
+        <button type="button" class="btn btn-gold" id="rsvp-open">
+          RSVP
+        </button>
+      </section>
+
+      <footer class="footer section reveal-on-scroll">
+        <p class="footer-blessing">With love and gratitude,</p>
+        <p class="footer-names">
+          <span id="footer-names">Midhun & Rithunanda</span>
+        </p>
+      </footer>
+    </main>
+
+    <dialog id="rsvp-dialog" class="rsvp-dialog" aria-labelledby="rsvp-dialog-title">
+      <button
+        type="button"
+        class="rsvp-dialog-close"
+        id="rsvp-close"
+        aria-label="Close"
+      >
+        ×
+      </button>
+      <h2 id="rsvp-dialog-title" class="rsvp-dialog-title">RSVP</h2>
+      <p class="rsvp-dialog-lead">
+        Please let us know you’re coming, how many will join you, and leave a
+        note if you’d like.
+      </p>
+      <form id="rsvp-form" class="rsvp-form">
+        <div class="field">
+          <label for="rsvp-name">Name</label>
+          <input
+            id="rsvp-name"
+            name="name"
+            type="text"
+            required
+            autocomplete="name"
+          />
+        </div>
+        <div class="field">
+          <label for="rsvp-guests">Number of guests</label>
+          <input
+            id="rsvp-guests"
+            name="guests"
+            type="number"
+            min="1"
+            max="20"
+            value="1"
+            required
+          />
+        </div>
+        <div class="field">
+          <label for="rsvp-comment">Comment (optional)</label>
+          <textarea
+            id="rsvp-comment"
+            name="message"
+            rows="4"
+            maxlength="1000"
+            placeholder="Wishes, dietary notes, or anything we should know"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold" id="rsvp-submit">
+          Send RSVP
+        </button>
+        <p id="rsvp-status" class="rsvp-status" role="status" aria-live="polite"></p>
+      </form>
+    </dialog>
+
+    <script src="config.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
